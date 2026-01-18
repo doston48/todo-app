@@ -1,15 +1,18 @@
-from django.shortcuts import render 
+
 from django.http import HttpResponse
+from django.shortcuts import render 
 from .models import todo
 
+
+
 def todo_list(request):
-    todos = todo.objects.alL()
+    todos = todo.objects.all()
 
     
 # models.py U
 
    
-    return render(request, 'todoapp/base.html')
+    return render(request, 'todoapp/base.html', {})
     
 
 
@@ -20,6 +23,13 @@ def pending_todos(request):
     for todo in todos:
         response += f"{todo.title}\n{todo.priority}\n{todo.due_date}\n"
  
+    return HttpResponse(response)
 
 def completed_todos(request):
-     pass
+    todos = todo.objects.filter(is_completed = True)
+    reponse = ""
+     
+    for todo in todos:
+        
+
+    response += f"{todo.title}\n"
