@@ -9,5 +9,5 @@ class todo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     
-class user(models.Model):
-    pass
+def _str_(self):
+    return self.title

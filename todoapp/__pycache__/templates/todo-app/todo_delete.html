@@ -1,0 +1,11 @@
+{% extends 'todoapp/base.html' %}
+
+{% block content %}
+<h3>delete todo</h3>
+<p>are you sure you want to delete <strong>?</p>
+    <form method="post">
+        {% crsf_token %}
+        <button type="submit" class="btn btn-danger">delete</button>
+        <a href="{% url 'todo_list' %}" class="btn btn-secondary">cancel</a>
+    </form>
+    (% endblock %)

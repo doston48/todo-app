@@ -3,12 +3,14 @@
 <h2 class="mb-3">my todos</h2>
 
 {% if todos %}
-
+<a href="{% url 'add_todo'%}" class="btn btn-success mb-3">+ add todo </a>
 <ul class="list-group">
-    {% for todo in tools %}
-    <li class"list-group-item d-flex justify-content-between align-items-center">
+    {% for todo in todos %}
+    <li class="List-group-item d-flex justify-content-between align-items-center">
+        <a herf>="{% url 'update_todo' todo.id %}" class=btn btn -sm btn-outline-danger ms-2"delete<
+        <a herf>="{% url 'update_todo' todo.id %}" class=btn btn -sm btn-outline-primary"edit</a>
         <div>
-            <strong>{{todo.title}}
+            <strong>{{todo.title}}</strong><br>
                 <small>
             priority: {{todo.prority}}
             due date: {{todo.due_date}}
@@ -20,16 +22,10 @@
         <span class"badge text warning">pending</span>
         {% endif %}
     </li>
-    {% else %}
-
-        {% if todo.is_completed %}
-        <span>completed</span>
-        {% else %}
-
-    </li>
+    {%endfor%}
 </ul>
-{% else %}
-<p>no tasks yet</p>
+{% endif %}
 {% endblock %}
+
 
 
